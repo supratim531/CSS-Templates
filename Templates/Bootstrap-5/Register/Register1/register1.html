@@ -1,0 +1,116 @@
+<div class="container">
+  <form class="border p-3 shadow rounded-3" [formGroup]="registerForm" (ngSubmit)="registerOnClick()">
+    <div class="row g-0">
+      <div class="col text-center p-2 mb-1 bg-secondary text-light rounded-3">
+        <span class="fs-3">Register</span>
+      </div>
+      <div class="fw-normal text-muted mb-3 my_font">
+        Already an User? <a class="text-primary fw-bold text-decoration-none"
+        routerLink="/login">Sign in here</a>
+      </div>
+    </div>
+    <div *ngIf="showSuccessMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong style="font-family: 'Poppins', sans-serif;">Registration completed successfully</strong>
+      <button (click)="closeSuccessMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- <div *ngIf="showErrorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Some field information is still not appropriate</strong>
+      <button (click)="closeErrorMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> -->
+    <div class="row">
+      <div class="col mb-3">
+        <label for="fname" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="fname" id="fname" formControlName="fname">
+        <div *ngIf="fname.errors?.['required'] && (fname.dirty || showErrorMessage)" class="form-text text-danger">
+          First Name cannot be empty.
+        </div>
+        <div *ngIf="fname.errors?.['minlength'] && fname.dirty" class="form-text text-danger">
+          First Name is too short. (At least 3 characters)
+        </div>
+        <div *ngIf="fname.errors?.['pattern'] && fname.dirty" class="form-text text-danger">
+          First Name cannot contain number.
+        </div>
+      </div>
+      <div class="col mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="lname" id="lname" formControlName="lname">
+        <div *ngIf="lname.errors?.['required'] && (lname.dirty || showErrorMessage)" class="form-text text-danger">
+          Last Name cannot be empty.
+        </div>
+        <div *ngIf="lname.errors?.['minlength'] && lname.dirty" class="form-text text-danger">
+          Last Name is too short. (At least 3 characters)
+        </div>
+        <div *ngIf="lname.errors?.['pattern'] && lname.dirty" class="form-text text-danger">
+          Last Name cannot contain number.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="email" id="email" formControlName="email">
+        <div *ngIf="email.errors?.['required'] && (email.dirty || showErrorMessage)" class="form-text text-danger">
+          Email cannot be empty.
+        </div>
+        <div *ngIf="email.errors?.['email'] && (email.dirty || showErrorMessage)" class="form-text text-danger">
+          Email is not valid.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="phone" class="form-label">Contact Number</label>
+        <input type="text" class="form-control" name="phone" id="phone" formControlName="phone">
+        <div *ngIf="phone.errors?.['required'] && (phone.dirty || showErrorMessage)" class="form-text text-danger">
+          Phone number cannot be empty.
+        </div>
+        <div *ngIf="phone.errors?.['pattern'] && (phone.dirty || showErrorMessage)" class="form-text text-danger">
+          Phone number is invalid.
+        </div>
+        <div *ngIf="(phone.errors?.['minlength'] || phone.errors?.['maxlength']) && (phone.dirty || showErrorMessage)" class="form-text text-danger">
+          Phone number must have 10 digits.
+        </div>
+      </div>
+      <div class="col ps-3 mb-3">
+        <div class="m-1">Gender</div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="male" value="m" formControlName="gender">
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="female" value="f" formControlName="gender">
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+        <div *ngIf="gender.errors?.['required'] && (gender.dirty || showErrorMessage)" class="form-text text-danger">
+          Please select your gender.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" formControlName="pass">
+        <div *ngIf="pass.errors?.['required'] && (pass.dirty || showErrorMessage)" class="form-text text-danger">
+          This field is required.
+        </div>
+        <div *ngIf="pass.errors?.['minlength'] && (pass.dirty || showErrorMessage)" class="form-text text-danger">
+          Password should have minimum 8 characters.
+        </div>
+      </div>
+      <div class="col mb-4">
+        <label for="cpassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="cpassword" id="cpassword" formControlName="cpass">
+        <div class="form-text text-danger" [ngStyle]="{'display': cpassError}">
+          Confirm Password did not match.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary submit_btn">Continue</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

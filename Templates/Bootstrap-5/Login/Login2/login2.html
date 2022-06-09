@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="loginOnClick()" class="border p-3 rounded-3 shadow">
+    <div class="row g-0">
+      <div class="col text-center bg-secondary text-light p-2 mb-1 rounded-3">
+        <span class="fs-3">Login</span>
+      </div>
+      <div class="fw-normal text-muted mb-3 my_font">
+        New Here? <a class="text-primary fw-bold text-decoration-none"
+        routerLink="/register">Create an Account</a>
+      </div>
+    </div>
+    <div *ngIf="showWrongCredentialMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong style="font-family: 'Poppins', sans-serif;">Wrong Email Address or Password</strong>
+      <button (click)="closeErrorMessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="row">
+      <div class="col mb-1">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" name="email" id="email" formControlName="email">
+        <div *ngIf="email.errors?.['required'] && (email.dirty || showErrorMessage)" class="form-text text-danger">
+          Email cannot be empty.
+        </div>
+        <div *ngIf="email.errors?.['email'] && (email.dirty || showErrorMessage)" class="form-text text-danger">
+          Email is not valid.
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col mb-4">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password" formControlName="pass">
+        <div *ngIf="pass.errors?.['required'] && (pass.dirty || showErrorMessage)" class="form-text text-danger">
+          Password cannot be empty.
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary submit_btn w-100">Login</button>
+  </form>
+</div>

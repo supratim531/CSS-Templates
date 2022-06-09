@@ -1,0 +1,28 @@
+/* Google Poppins Font CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  width: 500px;
+}
+
+.submit_btn {
+  padding: 6px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.submit_btn:focus {
+  box-shadow: none;
+}
+
+.my_font {
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
