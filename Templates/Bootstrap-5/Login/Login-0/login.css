@@ -23,17 +23,12 @@ body {
 /* Main CSS */
 .wrapper {
   padding: 0 0 100px;
-  background-image: url();
+  background-image: url('./images/bgim.png');
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
   min-height: 100%;
-}
-
-.wrapper .logo {
-  max-width: 40%;
-  margin-left: 105px;
 }
 
 .wrapper input {
@@ -65,19 +60,5 @@ body {
 }
 
 .wrapper .login_with img {
-  max-width: 12%;
-}
-
-/* .md-con {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 35vh;
-  width: 90vw;
-} */
-
-main {
-  display: flex;
-  justify-content: center;
+  max-width: 10%;
 }
