@@ -1,0 +1,31 @@
+.bar-1 {
+  width: 34px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: white;
+  transform-origin: 0;
+  transform: rotate(0deg);
+  transition: transform 100ms ease-in;
+  /* transform: rotate(45deg); */
+}
+
+.bar-2 {
+  width: 34px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+  /* visibility: hidden; */
+}
+
+.bar-3 {
+  width: 34px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: white;
+  transform-origin: 0;
+  transform: rotate(0deg);
+  transition: transform 100ms ease-in;
+  /* transform: rotate(-45deg); */
+}
